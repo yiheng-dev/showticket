@@ -280,6 +280,21 @@ showticket/
 - **Feign 错误解码**：把下游业务异常统一转换为可读提示，避免直接返回 500。
 - **Nacos 动态路由**：网关路由从 Nacos `gateway-routes.json` 动态加载。
 
+## 开发记录 / 踩坑
+
+- **Seata 分组切换**：客户端事务分组从旧分组改为 `showticket` 后，日志一直提示 `no available service found in cluster 'default'`。排查后确认是 Seata Server 的 `vgroupMapping` 没有同步，补上 `service.vgroupMapping.showticket=default` 后恢复。
+- **JDK 21 与 MyBatis-Plus**：MyBatis-Plus 3.4.3 在 JDK 21 下执行 lambda 查询会初始化失败，需要给服务添加 `--add-opens java.base/java.lang.invoke=ALL-UNNAMED`。
+- **ES 近实时刷新**：重建索引时 bulk 写入后立即 `count()` 可能返回 0，但 `_count` 实际已经是 216。最终在导入后显式调用 `refresh`，接口返回值才稳定。
+- **雪花 ID 精度**：支付单 ID 是 19 位雪花 ID，直接以数字返回会被浏览器 `JSON.parse` 成 Number 并丢失精度，导致按错误 ID 查询支付单。改成字符串返回后解决。
+- **延迟消息依赖**：RabbitMQ 未开启 `rabbitmq_delayed_message_exchange` 时，订单超时关闭和支付状态同步都会失效，部署时需要先确认插件状态。
+
+## 后续计划
+
+- 接入真实支付渠道（支付宝/微信）。
+- 增加座位级库存与选座能力。
+- 提供 Docker Compose 一键启动脚本。
+- 补充服务端单元测试与 GitHub Actions。
+
 ## 注意事项
 
 - 仓库中的数据库密码、Nacos 账号、JWT keystore 密码均为演示配置，部署到公网前请替换为安全配置。
