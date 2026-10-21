@@ -1,0 +1,14 @@
+seata:
+  registry:
+    type: nacos
+    nacos:
+      server-addr: 192.168.17.130:8848
+      namespace: ""
+      group: DEFAULT_GROUP
+      application: seata-server
+      username: nacos
+      password: nacos
+  tx-service-group: showticket
+  service:
+    vgroup-mapping:
+      showticket: "default"

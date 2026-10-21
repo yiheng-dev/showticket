@@ -1,0 +1,17 @@
+server:
+  port: 8085
+ticket:
+  db:
+    database: ticket_order
+  swagger:
+    title: "演出票务平台·订单服务接口文档"
+    package: com.showticket.order.controller
+  order:
+    pay-timeout-ms: 120000
+spring:
+  rabbitmq:
+    host: 192.168.17.130
+    port: 5672
+    virtual-host: /
+    username: yilu
+    password: 123456

@@ -1,0 +1,64 @@
+[
+  {
+    "id": "show-service",
+    "uri": "lb://show-service",
+    "predicates": [
+      {
+        "name": "Path",
+        "args": {
+          "_genkey_0": "/shows/**",
+          "_genkey_1": "/search/**"
+        }
+      }
+    ]
+  },
+  {
+    "id": "selection-service",
+    "uri": "lb://selection-service",
+    "predicates": [
+      {
+        "name": "Path",
+        "args": {
+          "_genkey_0": "/selections/**"
+        }
+      }
+    ]
+  },
+  {
+    "id": "order-service",
+    "uri": "lb://order-service",
+    "predicates": [
+      {
+        "name": "Path",
+        "args": {
+          "_genkey_0": "/orders/**"
+        }
+      }
+    ]
+  },
+  {
+    "id": "pay-service",
+    "uri": "lb://pay-service",
+    "predicates": [
+      {
+        "name": "Path",
+        "args": {
+          "_genkey_0": "/pay-orders/**"
+        }
+      }
+    ]
+  },
+  {
+    "id": "user-service",
+    "uri": "lb://user-service",
+    "predicates": [
+      {
+        "name": "Path",
+        "args": {
+          "_genkey_0": "/users/**",
+          "_genkey_1": "/addresses/**"
+        }
+      }
+    ]
+  }
+]

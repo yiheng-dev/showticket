@@ -1,0 +1,10 @@
+server:
+  port: 8081
+ticket:
+  db:
+    database: ticket_show
+  es:
+    host: 192.168.17.130:9200
+  swagger:
+    title: "演出票务平台·演出服务接口文档"
+    package: com.showticket.show.controller

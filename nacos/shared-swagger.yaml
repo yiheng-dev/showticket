@@ -1,0 +1,15 @@
+knife4j:
+  enable: true
+  openapi:
+    title: ${ticket.swagger.title:演出票务平台接口文档}
+    description: ${ticket.swagger.description:演出票务平台接口文档}
+    email: ${ticket.swagger.email:dev@showticket.local}
+    concat: ${ticket.swagger.concat:ShowTicket}
+    url: http://localhost:8080
+    version: v1.0.0
+    group:
+      default:
+        group-name: default
+        api-rule: package
+        api-rule-resources:
+          - ${ticket.swagger.package}

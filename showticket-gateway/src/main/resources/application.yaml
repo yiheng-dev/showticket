@@ -1,0 +1,25 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        add-to-simple-url-handler-mapping: true
+        cors-configurations:
+          '[/**]':
+            allowedOriginPatterns: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            maxAge: 3600
+ticket:
+  jwt:
+    location: classpath:showticket.jks
+    alias: showticket
+    password: showticket123
+    tokenTTL: 30m
+  auth:
+    excludePaths:
+      - /search/**
+      - /users/login
+      - /shows/**
+      - /hi
