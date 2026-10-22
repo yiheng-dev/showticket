@@ -2,6 +2,20 @@
 
 一个基于 Spring Cloud Alibaba 的演出票务平台。
 
+## 效果预览
+
+| 首页 | 演出详情 |
+| :---: | :---: |
+| ![首页](docs/screenshots/home.png) | ![演出详情](docs/screenshots/show-detail.png) |
+
+| 选票清单 | 订单详情 |
+| :---: | :---: |
+| ![选票清单](docs/screenshots/selection.png) | ![订单详情](docs/screenshots/order-detail.png) |
+
+| 索引管理 | 登录 |
+| :---: | :---: |
+| ![索引管理](docs/screenshots/admin.png) | ![登录](docs/screenshots/login.png) |
+
 ## 项目结构
 
 ```text
